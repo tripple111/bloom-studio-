@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { QuickInquiry } from "@/components/quick-inquiry";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header
@@ -28,7 +31,7 @@ export function SiteHeader() {
           Bloom Studio
         </a>
         <nav
-          className={`flex flex-wrap gap-4 sm:gap-6 md:gap-8 text-sm items-center ${
+          className={`hidden md:flex flex-wrap gap-4 sm:gap-6 md:gap-8 text-sm items-center ${
             isHome ? "text-cream" : "text-coffee"
           }`}
         >
@@ -40,7 +43,42 @@ export function SiteHeader() {
           </a>
           <QuickInquiry />
         </nav>
+        <button
+          type="button"
+          onClick={() => setMobileOpen((open) => !open)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          className={`md:hidden p-2 -mr-2 rounded-full transition-all duration-200 hover:opacity-70 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coffee focus-visible:ring-offset-2 ${
+            isHome ? "text-cream" : "text-coffee"
+          }`}
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {mobileOpen && (
+        <nav
+          className={`md:hidden flex flex-col gap-4 text-sm mt-4 pb-4 px-2 rounded-md ${
+            isHome ? "text-cream bg-black/30 backdrop-blur-sm py-4" : "text-coffee"
+          }`}
+        >
+          <a
+            href="/about"
+            onClick={() => setMobileOpen(false)}
+            className="hover:opacity-70 transition"
+          >
+            About
+          </a>
+          <a
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="hover:opacity-70 transition"
+          >
+            Location
+          </a>
+          <QuickInquiry />
+        </nav>
+      )}
     </header>
   );
 }

@@ -83,7 +83,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative w-full h-screen -mt-[92px]">
+      <section className="relative w-full h-[65vh] md:h-screen -mt-[92px]">
         <img
           src="/yogastudio.jpg"
           alt="Yoga studio"
@@ -106,7 +106,7 @@ export default function Home() {
             href="/schedule"
             className="font-body px-8 py-3.5 border border-cream text-cream font-semibold rounded-full transition-all duration-200 hover:bg-cream hover:text-coffee hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 inline-flex items-center gap-2"
           >
-            View Classes ↗
+            View Classes
           </a>
         </div>
       </section>
@@ -141,8 +141,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-12 px-8">
-        <div className="max-w-2xl mx-auto flex items-center justify-center gap-6">
+      <section className="py-12 px-4 md:px-8">
+        <div className="max-w-2xl mx-auto flex items-center justify-center gap-2 md:gap-6">
           <button
             type="button"
             onClick={showPrevious}
@@ -152,7 +152,7 @@ export default function Home() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <div className="rounded-card border border-tea bg-tea/20 px-10 py-10 text-center flex-1">
+          <div className="rounded-card border border-tea bg-tea/20 px-4 py-8 md:px-10 md:py-10 text-center flex-1">
             <p className="text-lg leading-relaxed text-coffee mb-6">
               &ldquo;{testimonial.quote}&rdquo;
             </p>
