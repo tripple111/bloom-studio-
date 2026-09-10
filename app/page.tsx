@@ -114,8 +114,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg leading-relaxed text-coffee">
             At Bloom Studio, we created a mindful movement space shaped by
-            community, rhythm, and presence—a place to pause, step away from the
-            noise, and return to a grounded state. Through deliberate{" "}
+            community, rhythm, and presence. Through deliberate{" "}
             <span className="text-xl font-semibold">Pilates</span> flows and
             intentional <span className="text-xl font-semibold">Yoga</span>{" "}
             practice, our classes offer a steady return to your body and breath.
