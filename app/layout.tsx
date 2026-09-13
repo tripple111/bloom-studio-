@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
+import { SITE_URL } from "@/lib/site";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,8 +19,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Bloom Studio",
-  description: "Boutique Pilates & Yoga Studio",
+  description:
+    "Bloom Studio is a boutique Pilates and yoga studio offering mindful movement classes — Reformer Pilates, Mat Pilates, Vinyasa Flow, and Restorative Yoga — for all levels of experience.",
+  openGraph: {
+    title: "Bloom Studio",
+    description:
+      "A boutique Pilates and yoga studio offering mindful movement classes for all levels of experience.",
+    url: SITE_URL,
+    siteName: "Bloom Studio",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bloom Studio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
