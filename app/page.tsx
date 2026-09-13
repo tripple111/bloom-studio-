@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
@@ -84,10 +85,13 @@ export default function Home() {
   return (
     <div>
       <section className="relative w-full h-[65vh] md:h-screen -mt-[92px]">
-        <img
+        <Image
           src="/yogastudio.jpg"
           alt="Yoga studio"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-start justify-center px-16 pt-32">
           <h1
@@ -124,18 +128,22 @@ export default function Home() {
       </section>
       <section className="pb-12 px-8">
         <div className="max-w-5xl mx-auto grid grid-cols-2 gap-10">
-          <div className="aspect-[3/4] rounded-md overflow-hidden">
-            <img
+          <div className="relative aspect-[3/4] rounded-md overflow-hidden">
+            <Image
               src="/rr.jpg"
               alt="Studio"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 512px, 50vw"
+              className="object-cover"
             />
           </div>
-          <div className="aspect-[3/4] rounded-md overflow-hidden">
-            <img
+          <div className="relative aspect-[3/4] rounded-md overflow-hidden">
+            <Image
               src="/jj.jpg"
               alt="Studio"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 512px, 50vw"
+              className="object-cover"
             />
           </div>
         </div>
